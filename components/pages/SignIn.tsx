@@ -11,6 +11,8 @@ import {
   ScrollView,
 } from 'react-native';
 import { User, Lock, Eye, EyeOff, Wallet, ArrowRight } from 'lucide-react-native';
+// Centralized color palette shared with Tailwind
+const colors = require('../../theme/colors.json');
 
 export default function SignInScreen() {
   const [username, setUsername] = useState('');
@@ -45,11 +47,11 @@ export default function SignInScreen() {
         <View style={styles.form}>
           <Text style={styles.label}>Username</Text>
           <View style={styles.inputWrapper}>
-            <User stroke="#94a3b8" size={20} />
+            <User stroke={colors.label} size={20} />
             <TextInput
               style={styles.input}
               placeholder="@josue_crypto"
-              placeholderTextColor="#cbd5e1"
+              placeholderTextColor={colors.placeholderMuted}
               value={username}
               onChangeText={setUsername}
               autoCapitalize="none"
@@ -58,20 +60,20 @@ export default function SignInScreen() {
 
           <Text style={styles.label}>Password</Text>
           <View style={styles.inputWrapper}>
-            <Lock stroke="#94a3b8" size={20} />
+            <Lock stroke={colors.label} size={20} />
             <TextInput
               style={styles.input}
               placeholder="••••••••"
-              placeholderTextColor="#cbd5e1"
+              placeholderTextColor={colors.placeholderMuted}
               value={password}
               onChangeText={setPassword}
               secureTextEntry={secureText}
             />
             <TouchableOpacity onPress={() => setSecureText(!secureText)}>
               {secureText ? (
-                <Eye stroke="#94a3b8" size={20} />
+                <Eye stroke={colors.label} size={20} />
               ) : (
-                <EyeOff stroke="#94a3b8" size={20} />
+                <EyeOff stroke={colors.label} size={20} />
               )}
             </TouchableOpacity>
           </View>
@@ -86,7 +88,7 @@ export default function SignInScreen() {
             disabled={!isValid}
             onPress={handleSignIn}>
             <Text style={styles.signInBtnText}>Sign In</Text>
-            <ArrowRight stroke="#fff" size={18} />
+            <ArrowRight stroke={colors.white} size={18} />
           </TouchableOpacity>
         </View>
 
@@ -99,7 +101,7 @@ export default function SignInScreen() {
 
         {/* Connect Wallet */}
         <TouchableOpacity style={styles.walletBtn}>
-          <Wallet stroke="#f59e0b" size={20} />
+          <Wallet stroke={colors.amber} size={20} />
           <Text style={styles.walletBtnText}>Connect Wallet</Text>
         </TouchableOpacity>
 
@@ -116,19 +118,19 @@ export default function SignInScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#f8fafc' },
+  container: { flex: 1, backgroundColor: colors.backgroundSoft },
   scrollContent: { padding: 24, alignItems: 'center', justifyContent: 'center', flexGrow: 1 },
   logoContainer: {
     width: 100,
     height: 100,
-    backgroundColor: '#fff',
+    backgroundColor: colors.surface,
     borderRadius: 24,
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 16,
     ...Platform.select({
       ios: {
-        shadowColor: '#000',
+        shadowColor: colors.shadowStrong,
         shadowOffset: { width: 0, height: 4 },
         shadowOpacity: 0.1,
         shadowRadius: 10,
@@ -137,61 +139,67 @@ const styles = StyleSheet.create({
     }),
   },
   logo: { width: 80, height: 80, resizeMode: 'contain' },
-  title: { fontSize: 32, fontWeight: '800', color: '#1e293b' },
-  tagline: { fontSize: 14, color: '#64748b', marginTop: 4 },
+  title: { fontSize: 32, fontWeight: '800', color: colors.heading },
+  tagline: { fontSize: 14, color: colors.tagline, marginTop: 4 },
   form: { width: '100%', marginTop: 10 },
-  label: { fontSize: 12, fontWeight: '700', color: '#94a3b8', marginBottom: 8, marginLeft: 4 },
+  label: {
+    fontSize: 12,
+    fontWeight: '700',
+    color: colors.label,
+    marginBottom: 8,
+    marginLeft: 4,
+  },
   inputWrapper: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: colors.surface,
     borderWidth: 1,
-    borderColor: '#f1f5f9',
+    borderColor: colors.borderSubtle,
     borderRadius: 16,
     paddingHorizontal: 16,
     height: 56,
     marginBottom: 16,
   },
   icon: { marginRight: 12 },
-  input: { flex: 1, color: '#1e293b', fontSize: 16 },
+  input: { flex: 1, color: colors.heading, fontSize: 16 },
   forgotBtn: { alignSelf: 'flex-end', marginBottom: 24 },
-  forgotText: { color: '#0ea5e9', fontWeight: '700', fontSize: 14 },
+  forgotText: { color: colors.primaryTint, fontWeight: '700', fontSize: 14 },
   signInBtn: {
-    backgroundColor: '#ff9a76',
+    backgroundColor: colors.ctaAlt,
     height: 60,
     borderRadius: 20,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    shadowColor: '#ff9a76',
+    shadowColor: colors.ctaAlt,
     shadowOffset: { width: 0, height: 8 },
     shadowOpacity: 0.3,
     shadowRadius: 12,
     elevation: 8,
   },
-  disabledBtn: { backgroundColor: '#cbd5e1', shadowOpacity: 0, elevation: 0 },
-  signInBtnText: { color: '#fff', fontSize: 18, fontWeight: '700', marginRight: 8 },
+  disabledBtn: { backgroundColor: colors.placeholderMuted, shadowOpacity: 0, elevation: 0 },
+  signInBtnText: { color: colors.white, fontSize: 18, fontWeight: '700', marginRight: 8 },
   dividerContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     marginVertical: 32,
     width: '100%',
   },
-  line: { flex: 1, height: 1, backgroundColor: '#e2e8f0' },
-  orText: { marginHorizontal: 16, color: '#cbd5e1', fontSize: 12, fontWeight: '800' },
+  line: { flex: 1, height: 1, backgroundColor: colors.divider },
+  orText: { marginHorizontal: 16, color: colors.placeholderMuted, fontSize: 12, fontWeight: '800' },
   walletBtn: {
     width: '100%',
     height: 60,
     borderRadius: 20,
     borderWidth: 1,
-    borderColor: '#FBBF24',
+    borderColor: colors.walletBorder,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#FFDAB9',
+    backgroundColor: colors.walletBg,
   },
-  walletBtnText: { color: '#FBBF24', fontSize: 16, fontWeight: '700' },
+  walletBtnText: { color: colors.walletBorder, fontSize: 16, fontWeight: '700' },
   footer: { flexDirection: 'row', marginTop: 32 },
-  footerText: { color: '#64748b' },
-  signUpText: { color: '#0ea5e9', fontWeight: '700' },
+  footerText: { color: colors.tagline },
+  signUpText: { color: colors.primaryTint, fontWeight: '700' },
 });
