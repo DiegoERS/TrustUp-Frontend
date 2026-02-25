@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Text,
@@ -13,12 +13,13 @@ import { User, Lock, Eye, EyeOff, Wallet, ArrowRight } from 'lucide-react-native
 import { useSignIn } from '../../hooks/auth/use-sign-in';
 
 export default function SignInScreen() {
+  // secureText is a UI-only concern, kept in local state
+  const [secureText, setSecureText] = useState(true);
   const {
     formState,
     isValid,
     handleUsernameChange,
     handlePasswordChange,
-    toggleSecureText,
     handleSignIn,
   } = useSignIn();
 
@@ -71,21 +72,19 @@ export default function SignInScreen() {
           <Text className="mb-2 ml-1 text-xs font-bold text-[#94a3b8]">Password</Text>
           <View className="mb-4 h-14 flex-row items-center rounded-2xl border border-[#f1f5f9] bg-white px-4">
             <Lock stroke="#94a3b8" size={20} />
-            {/* key forces remount when toggling secureTextEntry — fixes RN bug where toggle stops working */}
             <TextInput
-              key={formState.secureText ? 'secure' : 'visible'}
               className="flex-1 text-base text-[#1e293b]"
               placeholder="••••••••"
               placeholderTextColor="#cbd5e1"
               value={formState.password}
               onChangeText={handlePasswordChange}
-              secureTextEntry={formState.secureText}
-              autoComplete="off"
+              secureTextEntry={secureText}
             />
             <TouchableOpacity
-              onPress={toggleSecureText}
-              accessibilityLabel={formState.secureText ? 'Show password' : 'Hide password'}>
-              {formState.secureText ? (
+              onPress={() => setSecureText((prev) => !prev)}
+              accessibilityLabel={secureText ? 'Show password' : 'Hide password'}
+              hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}>
+              {secureText ? (
                 <Eye stroke="#94a3b8" size={20} />
               ) : (
                 <EyeOff stroke="#94a3b8" size={20} />

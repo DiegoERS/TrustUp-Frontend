@@ -6,7 +6,6 @@ import { useState, useCallback } from 'react';
 export interface SignInFormState {
   username: string;
   password: string;
-  secureText: boolean;
 }
 
 /**
@@ -20,7 +19,6 @@ export interface UseSignInReturn {
   // Field handlers
   handleUsernameChange: (text: string) => void;
   handlePasswordChange: (text: string) => void;
-  toggleSecureText: () => void;
 
   // Actions
   handleSignIn: () => void;
@@ -32,7 +30,6 @@ export interface UseSignInReturn {
 const initialFormState: SignInFormState = {
   username: '',
   password: '',
-  secureText: true,
 };
 
 /**
@@ -62,10 +59,6 @@ export const useSignIn = (): UseSignInReturn => {
     setFormState((prev) => ({ ...prev, password: text }));
   }, []);
 
-  const toggleSecureText = useCallback(() => {
-    setFormState((prev) => ({ ...prev, secureText: !prev.secureText }));
-  }, []);
-
   // Sign in handler
   const handleSignIn = useCallback(() => {
     console.log('Form Data:', { username: formState.username, password: formState.password });
@@ -79,7 +72,6 @@ export const useSignIn = (): UseSignInReturn => {
     // Field handlers
     handleUsernameChange,
     handlePasswordChange,
-    toggleSecureText,
 
     // Actions
     handleSignIn,
