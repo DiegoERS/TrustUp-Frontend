@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import {
   StyleSheet,
   View,
@@ -13,21 +13,17 @@ import {
 import { User, Lock, Eye, EyeOff, Wallet, ArrowRight } from 'lucide-react-native';
 // Centralized color palette shared with Tailwind
 const colors = require('../../theme/colors.json');
+import { useSignIn } from '../../hooks/auth/use-sign-in';
 
 export default function SignInScreen() {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [secureText, setSecureText] = useState(true);
-  const [isValid, setIsValid] = useState(false);
-
-  // Form Validation Logic
-  useEffect(() => {
-    setIsValid(username.trim().length > 0 && password.trim().length > 0);
-  }, [username, password]);
-
-  const handleSignIn = () => {
-    console.log('Form Data:', { username, password });
-  };
+  const {
+    formState,
+    isValid,
+    handleUsernameChange,
+    handlePasswordChange,
+    toggleSecureText,
+    handleSignIn,
+  } = useSignIn();
 
   return (
     <KeyboardAvoidingView
@@ -54,6 +50,9 @@ export default function SignInScreen() {
               placeholderTextColor={colors.placeholderMuted}
               value={username}
               onChangeText={setUsername}
+              placeholderTextColor="#cbd5e1"
+              value={formState.username}
+              onChangeText={handleUsernameChange}
               autoCapitalize="none"
             />
           </View>
@@ -72,6 +71,14 @@ export default function SignInScreen() {
             <TouchableOpacity onPress={() => setSecureText(!secureText)}>
               {secureText ? (
                 <Eye stroke={colors.label} size={20} />
+              placeholderTextColor="#cbd5e1"
+              value={formState.password}
+              onChangeText={handlePasswordChange}
+              secureTextEntry={formState.secureText}
+            />
+            <TouchableOpacity onPress={toggleSecureText}>
+              {formState.secureText ? (
+                <Eye stroke="#94a3b8" size={20} />
               ) : (
                 <EyeOff stroke={colors.label} size={20} />
               )}
