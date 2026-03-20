@@ -14,18 +14,26 @@ async function getContributors() {
 }
 
 function generateMarkdown(contributors) {
-  const top = contributors.slice(0, 10);
+  const top = contributors.slice(0, 3);
 
-  let md = `## 🏆 Leaderboard\n\n`;
-  md += `| Rank | User | Contributions |\n`;
-  md += `|------|------|--------------|\n`;
+  let md = `## 🏆 Top 3 Contributors\n\n`;
+  md += `<div align="center">\n\n<table>\n<tr>\n`;
 
   top.forEach((c, index) => {
     const medals = ["🥇", "🥈", "🥉"];
-    const rank = medals[index] || `#${index + 1}`;
 
-    md += `| ${rank} | [@${c.login}](${c.html_url}) | ${c.contributions} |\n`;
+    md += `
+<td align="center">
+  <a href="${c.html_url}">
+    <img src="${c.avatar_url}" width="100px;" style="border-radius:50%;" alt="${c.login}"/><br />
+    <sub><b>${medals[index]} @${c.login}</b></sub><br />
+    <sub>${c.contributions} contributions</sub>
+  </a>
+</td>
+`;
   });
+
+  md += `\n</tr>\n</table>\n</div>\n`;
 
   return md;
 }
