@@ -250,20 +250,40 @@ cd android && ./gradlew clean && cd ..
 
 ---
 <!-- LEADERBOARD_START -->
-## 🏆 Leaderboard
+## 🏆 Top 3 Contributors
 
-| Rank | User | Contributions |
-|------|------|--------------|
-| 🥇 | [@D240021](https://github.com/D240021) | 31 |
-| 🥈 | [@Yusufolosun](https://github.com/Yusufolosun) | 8 |
-| 🥉 | [@KevinMB0220](https://github.com/KevinMB0220) | 6 |
-| #4 | [@Benalex8797](https://github.com/Benalex8797) | 5 |
-| #5 | [@Emmzyemms](https://github.com/Emmzyemms) | 2 |
-| #6 | [@KingFRANKHOOD](https://github.com/KingFRANKHOOD) | 2 |
-| #7 | [@Adeswalla](https://github.com/Adeswalla) | 1 |
-| #8 | [@Jopsan-gm](https://github.com/Jopsan-gm) | 1 |
-| #9 | [@JoyLight00](https://github.com/JoyLight00) | 1 |
-| #10 | [@luighis](https://github.com/luighis) | 1 |
+<div align="center">
+
+<table>
+<tr>
+
+<td align="center">
+  <a href="https://github.com/D240021">
+    <img src="https://avatars.githubusercontent.com/u/104049620?v=4" width="100px;" style="border-radius:50%;" alt="D240021"/><br />
+    <sub><b>🥇 @D240021</b></sub><br />
+    <sub>31 contributions</sub>
+  </a>
+</td>
+
+<td align="center">
+  <a href="https://github.com/Yusufolosun">
+    <img src="https://avatars.githubusercontent.com/u/175801072?v=4" width="100px;" style="border-radius:50%;" alt="Yusufolosun"/><br />
+    <sub><b>🥈 @Yusufolosun</b></sub><br />
+    <sub>8 contributions</sub>
+  </a>
+</td>
+
+<td align="center">
+  <a href="https://github.com/KevinMB0220">
+    <img src="https://avatars.githubusercontent.com/u/130603817?v=4" width="100px;" style="border-radius:50%;" alt="KevinMB0220"/><br />
+    <sub><b>🥉 @KevinMB0220</b></sub><br />
+    <sub>6 contributions</sub>
+  </a>
+</td>
+
+</tr>
+</table>
+</div>
 
 <!-- LEADERBOARD_END -->
 
