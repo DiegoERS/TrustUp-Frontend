@@ -288,8 +288,13 @@ cd android && ./gradlew clean && cd ..
 <!-- LEADERBOARD_END -->
 
 ---
+<div align="center">
 
 **Built with ❤️ for the Stellar ecosystem**
 
-[![Stellar](https://img.shields.io/badge/Powered%20by-Stellar-7D00FF?style=flat-square)](https://www.stellar.org/) [![Open Source](https://img.shields.io/badge/Open%20Source-Yes-green?style=flat-square)](https://opensource.org/)
+[![Stellar](https://img.shields.io/badge/Powered%20by-Stellar-7D00FF?style=flat-square)](https://www.stellar.org/)
+[![Open Source](https://img.shields.io/badge/Open%20Source-Yes-green?style=flat-square)](https://opensource.org/)
+[![MIT License](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)](./LICENSE)
+
+</div>
 
