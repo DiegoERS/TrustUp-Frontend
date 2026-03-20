@@ -249,7 +249,14 @@ cd android && ./gradlew clean && cd ..
 - [NativeWind](https://www.nativewind.dev/) - For Tailwind CSS integration
 
 ---
+<!-- LEADERBOARD_START -->
+## 🏆 Leaderboard
+Loading...
+<!-- LEADERBOARD_END -->
+
+---
 
 **Built with ❤️ for the Stellar ecosystem**
 
 [![Stellar](https://img.shields.io/badge/Powered%20by-Stellar-7D00FF?style=flat-square)](https://www.stellar.org/) [![Open Source](https://img.shields.io/badge/Open%20Source-Yes-green?style=flat-square)](https://opensource.org/)
+
