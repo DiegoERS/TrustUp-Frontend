@@ -251,7 +251,20 @@ cd android && ./gradlew clean && cd ..
 ---
 <!-- LEADERBOARD_START -->
 ## 🏆 Leaderboard
-Loading...
+
+| Rank | User | Contributions |
+|------|------|--------------|
+| 🥇 | [@D240021](https://github.com/D240021) | 31 |
+| 🥈 | [@Yusufolosun](https://github.com/Yusufolosun) | 8 |
+| 🥉 | [@KevinMB0220](https://github.com/KevinMB0220) | 6 |
+| #4 | [@Benalex8797](https://github.com/Benalex8797) | 5 |
+| #5 | [@Emmzyemms](https://github.com/Emmzyemms) | 2 |
+| #6 | [@KingFRANKHOOD](https://github.com/KingFRANKHOOD) | 2 |
+| #7 | [@Adeswalla](https://github.com/Adeswalla) | 1 |
+| #8 | [@Jopsan-gm](https://github.com/Jopsan-gm) | 1 |
+| #9 | [@JoyLight00](https://github.com/JoyLight00) | 1 |
+| #10 | [@luighis](https://github.com/luighis) | 1 |
+
 <!-- LEADERBOARD_END -->
 
 ---
