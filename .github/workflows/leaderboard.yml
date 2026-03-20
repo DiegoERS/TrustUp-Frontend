@@ -20,14 +20,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: "18"
-
-      - name: Debug structure
-        run: |
-          echo "ROOT:"
-          ls -la
-          echo "INNER:"
-          ls -la TrustUp-Frontend
-
+          
       - name: Run script
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
