@@ -35,16 +35,19 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
             style={styles.flex}
             keyboardShouldPersistTaps="handled"
           >
-            {isSettingsOpen ? (
-              <SettingsScreen onBack={() => setIsSettingsOpen(false)} />
-            ) : (
-              children
-            )}
+            {children}
           </ScrollView>
         </View>
         <View style={styles.bottomBarContainer}>
           <BottomBar activeTab={activeTab} setActiveTab={setActiveTab} />
         </View>
+
+        {/* Settings Overlay */}
+        {isSettingsOpen && (
+          <View style={[StyleSheet.absoluteFillObject, { zIndex: 20 }]}>
+            <SettingsScreen onBack={() => setIsSettingsOpen(false)} />
+          </View>
+        )}
 
         {/* Notifications Overlay */}
         <NotificationsPanel
